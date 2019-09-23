@@ -1,20 +1,27 @@
 package ch6
 
 // val sau var definesc campuri
-class Fractional(val numarator:Int, val numitor:Int = 0) { //defaul value
+class Fractional private (numarator:Int, numitor:Int) { //defaul value
+  require(numitor != 0)
+  def this(numarator: Int) = { // constructor overloaded.
+    // Obligatoriu cheama constructorul default (cel din semnatura clasei): this(,,,)
+    this(numarator,1)
+  }
   println(s"Se naste un nou numar: $numarator") // corpul constructorului
-
   override def toString: String = numarator.toString
 }
-
-
+object Fractional { //companion object
+  def apply(numarator: Int): Fractional = new Fractional(numarator)
+  def apply(numarator: Int, numitor: Int): Fractional =
+    new Fractional(numarator, numitor)
+}
 
 object FractionalPlay extends App {
 
-  val zero = new Fractional(0)
+  val zero = Fractional(0)
 
-  println("campul: " + zero.numarator)
+//  println("campul: " + zero.numarator)
   println(zero)
 
-  val doiPeCinci = new Fractional(2,5)
+  val doiPeCinci = Fractional(2,5)
 }
