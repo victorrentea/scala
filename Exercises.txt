@@ -1,0 +1,108 @@
+- val, var
+- list vs array
+- set, maps (vs mutable)
+- File challenge: print size of lines at begin
+
+
+
+EXERCISE Rational:
+- Rational(campuri)
+- toString
+- require
+- parametrii de clasa vs campuri
+- add()
+- gcd
+- operators
+- implicit conversions (in tip sau in pachet(
+
+
+Chap 7
+if = ?:
+- Nothing when throws
+Switch 
+- match { case _ =>
+catch { case Ex1: FileNotFoundException =>
+- finally 2 vs finally return 2
+
+EXERCISE For: list all the scala lines we wrote until now
+- to / until indexes
+- if
+- nested for vs <-
+- { te scapa de ;
+- loop backwards to (1,-1); downto
+
+EXERCISE: from imperative to functional:
+--> MultiplicationTable
+
+
+Chap 8 Functions
+- local functions
+- functii in variabile 
+- short form _;    nu merge val lt = _ > _
+- forEach(println _) aici _ e toata lista de parametrii
+- aplicare partiala:
+	val sumaCu3: Int => Int = sum(1, _, 2)
+	val sumaCu3Bis = sum(1, _:Int, 2)
+- foreach(println) e ok; val xxx= println   NU
+- closure sees the change of outer variables. Tine instanta in viata
+- repeated* params; pass an array : _*
+- default params =
+
+
+EXERCISE: convert continue/break to tail recursion
+
+Chap 9 Control Abstractions
+- Currying
+def sum(a:Int)(b:Int) = a + b
+def sum(a:Int) = (b:Int) => a + b
+- TODO: make a twice function care aplica de 2 ori o fct pe param 2
+- orice 1 param poate fi pasat cu { }
+- TODO:   withPrintWriter(file) { writer =>
+- by-name params ( : =>  Boolean)  TODO : an myAssert(b)
+  = lazy + many times callable form within
+  
+  
+Chap 10 OOP
+- Parameterless methods vs empty-paren (side effects) -> uniform access principle
+- no field name = method name
+
+- Element{def contents:Array[String]; width; height}
+- ArrayElement(conts:Array[String])  sau override via params
+- calling super constr:  LineElement(s:String) extends ArrayElement(Array(s))
+- override: fragile baseclass problem x 2
+- UniformElement(ch,w,h)
+- final def
+- compozitie intre LineElement si Array, nu ArrayElement
+- implem above (assume same widht) ++
+- implem beside for ((line1,line2) <- c1 zip c2) yield line1 + line 2
+- Factory methods in ELement companion
+- make subtypes private classes in Element object.
+
+Chap 11 
+- See scala's class hierarchy
+- value objects extends AnyVal
+
+Chap 12 Traits
+- === clasa cu 2 dif
+1) nu class params
+2) super.mmm e legat dinamic "Stackable modifications"
+- folosirea ca pe interfaces cu default methods
+- FullName extends Ordered[FullName] compare
+
+Stackable Modifications:
+abstract class IntQueue {get(),put(x:Int)}
+implememnt traits: abstract override
+Positive extends IntQueue
+Doubling
+Incrementer
+
+new BasicIntQueue with Doubing
+TODO vezi 12.1 tabel
+
+15. Pattern Matching
+- generalSize(Any) x match m:Map[_,_] =>
+- isInstanceOf si asInstanceOf  (descurajat)
+- case Map[Int,Int] ==> warning: erasure.
+			- Dar merge cu Array: isIntArray(a:Any)
+- pattern guards if (x==y)
+			
