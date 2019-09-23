@@ -9,16 +9,15 @@ object ForUnleashed extends App {
   println(totScala("""C:\workspace\scala\src\main\scala\ch1intro"""))
 
   def totScala(path:String):String = {
-    val files = new File(path).listFiles()
-    val listBuffer = new ListBuffer[String]
-    for (file <- files // .stream()
-         if file.getName.endsWith(".scala"); //.filter()
-         lines = Source.fromFile(file).getLines(); //.map()
-         line <- lines //.flatMap
-         ) {
-        listBuffer += line.toUpperCase
-    }
+    val listBuffer = for (file <- new File(path).listFiles() // .stream()
+                          if file.getName.endsWith(".scala"); //.filter()
+                          lines = fileLines(file); //.map()
+                          line <- lines //.flatMap
+         ) yield line.toUpperCase()
     listBuffer.mkString("\n")
   }
 
+  private def fileLines(file: File): List[String] = {
+    Source.fromFile(file).getLines().toList
+  }
 }
