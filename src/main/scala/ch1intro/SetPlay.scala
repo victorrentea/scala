@@ -10,7 +10,7 @@ object SetPlay extends App {
   val set = mutable.Set(1,2,3)
 
   def addIfNotThere(x : Int): Unit = {
-    if (!set.contains(x)) {
+    if (!set(x)) {
       println("Fac ceva ca nu era acolo")
       set += x
     }
