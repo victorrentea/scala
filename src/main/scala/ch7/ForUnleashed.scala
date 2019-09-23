@@ -11,11 +11,12 @@ object ForUnleashed extends App {
   def totScala(path:String):String = {
     val files = new File(path).listFiles()
     val listBuffer = new ListBuffer[String]
-    for (file <- files) {
-      if (file.getName.endsWith(".scala")) {
-        val lines = Source.fromFile(file).getLines()
-        listBuffer ++= (for (line <- lines) yield line.toUpperCase)
-      }
+    for (file <- files // .stream()
+         if file.getName.endsWith(".scala"); //.filter()
+         lines = Source.fromFile(file).getLines(); //.map()
+         line <- lines //.flatMap
+         ) {
+        listBuffer += line.toUpperCase
     }
     listBuffer.mkString("\n")
   }
