@@ -15,16 +15,16 @@ object LinePrinter extends App {
     def lineLengthLength(line: String): Int = line.length.toString.length
 
 
-    val marimi =
-    for (line <- Source.fromFile(fileName).getLines())
-      yield lineLengthLength(line)
-    val maxLength = marimi.max
+    // in Scala fata de Java, tranformarile functionale de colectii
+    // ruleaza imediat ce le aplici, nu lazy la .collect (ca in Javra)
+    val maxLength = Source.fromFile(fileName).getLines()
+      .map(line => lineLengthLength(line))
+      .max
     println("max: " + maxLength)
 
     for (line <- Source.fromFile(fileName).getLines()) {
-      val len = line.length
       val padding = " " * (maxLength - lineLengthLength(line))
-      println(padding + len + " | " + line)
+      println(padding + line.length + " | " + line)
     }
   }
 
