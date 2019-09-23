@@ -7,7 +7,7 @@ object SetPlay extends App {
   // var val += mutable
 
 
-  var set = Set(1,2,3)
+  val set = mutable.Set(1,2,3)
 
   def addIfNotThere(x : Int): Unit = {
     if (!set.contains(x)) {
