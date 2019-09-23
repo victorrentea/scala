@@ -18,7 +18,7 @@ object LinePrinter extends App {
     // in Scala fata de Java, tranformarile functionale de colectii
     // ruleaza imediat ce le aplici, nu lazy la .collect (ca in Javra)
     val maxLength = Source.fromFile(fileName).getLines()
-      .map(line => lineLengthLength(line))
+      .map(lineLengthLength(_))
       .max
     println("max: " + maxLength)
 
