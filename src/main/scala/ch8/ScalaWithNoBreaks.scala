@@ -12,17 +12,18 @@ object ScalaWithNoBreaks extends App{
     false
   }
 
-  def m(n:Int): List[Int] = {
-    @tailrec
-    def rec(n:Int):List[Int] = if (n == 0) Nil else n :: rec(n-1)
-    rec(n).reverse
+  @tailrec // valideaza la compilare ca scalac poate face optimizare de tail recursion:
+  // adica nu ajunge sa-ti cheme functia recursiv, ci o transforma in
+  // FOR sau GOTO :)
+  def m(n:Int, curr:List[Int] = Nil): List[Int] = {
+    if (n == 0) curr else m(n-1, n::curr)
   }
 
   println(m(0))
   println(m(1))
   println(m(2))
   println(m(3))
-  println(m(10000000))
+//  println(m(10000000))
 
 
   println(m(Array("-d", "blabla", "-x.scala", "asdakdas.scala")))
