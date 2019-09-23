@@ -5,9 +5,9 @@ package ch6
 //  private int numitor;
 //  public Rational(int numarator, int numitor) {
 //    this.numarator = numarator;
+//    this.numitor = numitor;
 //      def f()
 //    def toString()
-//    this.numitor = numitor;
 //  }
 //}
 // === ~~~+ ===
@@ -17,13 +17,19 @@ package ch6
 // nici nici => ca un parametru de consturctor
 
 // val sau var definesc campuri
-class Fractional private (val numarator:Int, private val numitor:Int) { //defaul value
-  require(numitor != 0)
+class Fractional private(numa: Int, numi: Int) { //defaul value
+  require(numi != 0)
+  private val numarator = numa / gcd(numa, numi)
+  private val numitor = numi / gcd(numa, numi)
+
   def this(numarator: Int) = { // constructor overloaded.
     // Obligatoriu cheama constructorul default (cel din semnatura clasei): this(,,,)
-    this(numarator,1)
+    this(numarator, 1)
   }
+
   println(s"Se naste un nou numar: $numarator pe $numitor") // corpul constructorului
+
+  private def gcd(a: Int, b: Int): Int = if (b == 0) a else gcd(b, a % b)
 
   override def toString: String =
     if (numitor != 1) numarator + "/" + numitor
@@ -37,8 +43,10 @@ class Fractional private (val numarator:Int, private val numitor:Int) { //defaul
     }
   }
 }
+
 object Fractional { //companion object
   def apply(numarator: Int): Fractional = new Fractional(numarator)
+
   def apply(numarator: Int, numitor: Int): Fractional =
     new Fractional(numarator, numitor)
 }
@@ -47,16 +55,16 @@ object FractionalPlay extends App {
 
   val zero = Fractional(0)
 
-  println("campul: " + zero.numarator)
+//  println("campul: " + zero.numarator)
   println(zero)
 
-  val doiPeCinci = Fractional(2,5)
-  val doiPeCinci2 = Fractional(2,5)
+  val doiPeCinci = Fractional(4, 10)
+  val doiPeCinci2 = Fractional(2, 5)
 
   println(doiPeCinci == doiPeCinci2)
 
-  // cmmdc  gcd
-  // TODO ==
+  // TODO cmmdc  gcd
   // TODO +
   // TODO *
 }
+
