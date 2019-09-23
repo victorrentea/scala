@@ -7,8 +7,10 @@ class Fractional private (numarator:Int, numitor:Int) { //defaul value
     // Obligatoriu cheama constructorul default (cel din semnatura clasei): this(,,,)
     this(numarator,1)
   }
-  println(s"Se naste un nou numar: $numarator") // corpul constructorului
-  override def toString: String = numarator.toString
+  println(s"Se naste un nou numar: $numarator pe $numitor") // corpul constructorului
+  override def toString: String =
+    if (numitor != 1) numarator + "/" + numitor
+    else numarator.toString
 }
 object Fractional { //companion object
   def apply(numarator: Int): Fractional = new Fractional(numarator)
@@ -24,4 +26,9 @@ object FractionalPlay extends App {
   println(zero)
 
   val doiPeCinci = Fractional(2,5)
+
+  // TODO toString nicer
+  // TODO ==
+  // TODO +
+  // TODO *
 }
