@@ -1,6 +1,7 @@
 package ch7
 
 import java.io.IOException
+import java.sql.SQLException
 
 object Erori extends  App{
 
@@ -10,7 +11,8 @@ object Erori extends  App{
     try {
       altaProasta(-1);
     } catch {
-      case e:IOException => println("Shaorma: " + e)
+      case e @ (_:IOException|_:SQLException) =>
+        println("Shaorma: " + e)
       case e:Exception => println("Cartofi prajiti: " + e)
       case _ => println("Duc gunoiul ca altceva nu merit in viata")
     }
