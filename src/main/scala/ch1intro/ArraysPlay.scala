@@ -31,6 +31,7 @@ object ArraysPlay extends App {
   println("initial : " + arrayList.size)
   arrayList += "a"
   println(arrayList)
+
 }
 
 class Apelabila {
