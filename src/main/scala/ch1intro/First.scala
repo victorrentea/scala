@@ -25,7 +25,7 @@ object First { //~ contine toatele metodele STATICE ale unei clase First
   def main (args: Array[String] ): Unit = {
     println("Hello Scala !")
     println(new First().sum(1,2))
-    println(new First().max(1,2))
+    println(new First() max (1,2))
 
     for (a <- args) {
       println(a.toUpperCase())
