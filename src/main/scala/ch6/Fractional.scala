@@ -30,11 +30,10 @@ class Fractional private (val numarator:Int, private val numitor:Int) { //defaul
     else numarator.toString
 
   override def equals(obj: Any): Boolean = {
-    if (obj.isInstanceOf[Fractional]) {
-      val other = obj.asInstanceOf[Fractional]
-      numitor == other.numitor && numarator == other.numarator
-    } else {
-      false
+    obj match {
+      case other: Fractional =>
+        numitor == other.numitor && numarator == other.numarator
+      case _ => false
     }
   }
 }
