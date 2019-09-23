@@ -14,11 +14,11 @@ object LinePrinter extends App {
   def printLineNice(fileName: String): Unit = {
     def lineLengthLength(line: String): Int = line.length.toString.length
 
-    var maxLength = 0
 
-    for (line <- Source.fromFile(fileName).getLines()) {
-      maxLength = maxLength max lineLengthLength(line)
-    }
+    val marimi =
+    for (line <- Source.fromFile(fileName).getLines())
+      yield lineLengthLength(line)
+    val maxLength = marimi.max
     println("max: " + maxLength)
 
     for (line <- Source.fromFile(fileName).getLines()) {
