@@ -12,7 +12,7 @@ object SetPlay extends App {
   def addIfNotThere(x : Int): Unit = {
     if (!set.contains(x)) {
       println("Fac ceva ca nu era acolo")
-      set = set + x
+      set += x
     }
   }
 
