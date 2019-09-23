@@ -25,8 +25,8 @@ object ScalaWithNoBreaks extends App{
   println(m(3))
 //  println(m(10000000))
 
-  metodaDeBiz(7, c=9)
-  def metodaDeBiz(a:Int=1 , b:Int= 2, c:Int=3): Unit ={
+  metodaDeBiz(c=9)
+  def metodaDeBiz(a:Int=1 , b:Int= 2, c:Int): Unit ={
     println(s"$a, $b, $c")
   }
 
