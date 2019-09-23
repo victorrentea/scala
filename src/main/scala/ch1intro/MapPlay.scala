@@ -6,4 +6,6 @@ object MapPlay extends App {
 
   // immutable or mutable ?
 
+  val map = Map(1.->("one"), 2 -> "two")
+
 }

@@ -5,8 +5,6 @@ import scala.collection.mutable
 object SetPlay extends App {
 
   // var val += mutable
-
-
   val set = mutable.Set(1,2,3)
 
   def addIfNotThere(x : Int): Unit = {
@@ -18,5 +16,7 @@ object SetPlay extends App {
 
   addIfNotThere(4)
   addIfNotThere(4)
+
+
 
 }
