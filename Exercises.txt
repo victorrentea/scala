@@ -4,6 +4,10 @@
 - File challenge: print size of lines at begin
 
 
+2 | ab
+10| 1234567890
+
+
 
 EXERCISE Rational:
 - Rational(campuri)

@@ -3,18 +3,13 @@ package ch8;
 public class BreaksAndContinue {
     public static void main(String[] args) {
         String[] arr = {"-d", "blabla", "-x.scala", "asdakdas.scala"};
-        int i = 0;                // This is Java
         boolean foundIt = false;
-        while (i < arr.length) {
-            if (arr[i].startsWith("-")) {
-                i = i + 1;
-                continue;
+        for (int i = 0; i < arr.length && !foundIt; i++) {
+            if (!arr[i].startsWith("-")) {
+                if (arr[i].endsWith(".scala")) {
+                    foundIt = true;
+                }
             }
-            if (arr[i].endsWith(".scala")) {
-                foundIt = true;
-                break;
-            }
-            i = i + 1;
         }
         System.out.println("Found it " + foundIt);
     }
