@@ -27,7 +27,7 @@ class Fractional private(numa: Int, numi: Int) { //defaul value
     this(numarator, 1)
   }
 
-  println(s"Se naste un nou numar: $numarator pe $numitor") // corpul constructorului
+//  println(s"Se naste un nou numar: $numarator pe $numitor") // corpul constructorului
 
   private def gcd(a: Int, b: Int): Int = if (b == 0) a else gcd(b, a % b)
 
@@ -42,6 +42,11 @@ class Fractional private(numa: Int, numi: Int) { //defaul value
       case _ => false
     }
   }
+
+  def +(other: Fractional): Fractional =
+    Fractional(numarator * other.numitor + other.numarator * numitor, numitor * other.numitor)
+//  def +(i: Int): Fractional =
+//    Fractional(i) + this
 }
 
 object Fractional { //companion object
@@ -49,10 +54,13 @@ object Fractional { //companion object
 
   def apply(numarator: Int, numitor: Int): Fractional =
     new Fractional(numarator, numitor)
+
+  implicit def deLaIntLaFractional(i: Int): Fractional = Fractional(i)
+  implicit def deLaFractionalLaInt(fractional: Fractional): Int = fractional.numarator/fractional.numitor
+
 }
 
 object FractionalPlay extends App {
-
   val zero = Fractional(0)
 
 //  println("campul: " + zero.numarator)
@@ -63,8 +71,26 @@ object FractionalPlay extends App {
 
   println(doiPeCinci == doiPeCinci2)
 
-  // TODO cmmdc  gcd
+  println(Fractional(1, 2) + Fractional(1, 3) == Fractional(5,6))
+  println(Fractional(1, 2) + Fractional(1, 2) == Fractional(1))
+
+  println(Fractional(1, 2) + Fractional.deLaIntLaFractional(1) == Fractional(3,2))
+  println(Fractional(1, 2) + 1 == Fractional(3,2))
+//  println(1.+(Fractional(1, 2)) == Fractional(3,2))
+
+  val unu: Int = Fractional(1, 2) + 1
+  val unuExplicit: Int = Fractional.deLaFractionalLaInt(Fractional(1, 2) + Fractional.deLaIntLaFractional(1))
+
+//  implicit def intToAltInt(i: Int) = new AltInt(i)
+
   // TODO +
   // TODO *
 }
+
+
+//class AltInt(val i: Int) {
+//  def +(fractional: Fractional): Fractional =
+//    Fractional(i) + fractional
+//}
+
 
