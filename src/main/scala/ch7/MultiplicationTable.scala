@@ -1,41 +1,20 @@
 package ch7
 
 object MultiplicationTable extends App {
-  def printMultiTable(): Unit = {
-
-    var i = 1
-    // only i in scope here
-
-    while (i <= 10) {
-
-      var j = 1
-      // both i and j in scope here
-
-      while (j <= 10) {
-
-        val prod = (i * j).toString
-        // i, j, and prod in scope here
-
-        var k = prod.length
-        // i, j, prod, and k in scope here
-
-        while (k < 4) {
-          print(" ")
-          k += 1
-        }
-
-        print(prod)
-        j += 1
-      }
-
-      // i and j still in scope; prod and k out of scope
-
-      println()
-      i += 1
+  def printMultiTable(): String = {
+    def generateCell(i: Int, j: Int) = {
+      val prod = (i * j).toString
+      " " * (4 - prod.length) + prod
     }
 
-    // i still in scope; j, prod, and k out of scope
+    def generateLine(i: Int):String = {
+      val cells = for (j <- 1 to 10) yield generateCell(i, j)
+      cells.mkString("")
+    }
+
+    val lines = for (i <- 1 to 10) yield generateLine(i)
+    lines.mkString("\n")
   }
 
-  printMultiTable()
+  println(printMultiTable())
 }
