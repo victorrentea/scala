@@ -3,14 +3,14 @@ package ch15
 import scala.util.Try
 
 object TryPlay extends App {
-  def sSquared(s:String): (String,Try[Int]) = {
-    s -> Try {
+  def sSquared(s:String): Try[Int] = {
+    Try {
       val i = Integer.parseInt(s)
       i * i
     }
   }
 
-  def sSquaredList(sList:Array[String]): Array[(String,Try[Int])] = {
+  def sSquaredList(sList:Array[String]): Array[Try[Int]] = {
     for (s <- sList) yield sSquared(s)
   }
 
