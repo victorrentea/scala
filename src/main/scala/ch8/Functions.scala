@@ -1,5 +1,9 @@
 package ch8
 
+import java.util.concurrent.Executors
+
+import scala.concurrent.Future
+
 object Functions extends App {
 
   def m(): Unit = {
@@ -38,9 +42,20 @@ object Functions extends App {
   println(Array(1, 3, 2).sortWith(_ < _).mkString(","))
   println(Array(FullName("a", "b")).sortWith(_ < _).mkString(","))
   println(Array(FullName("a", "b"),FullName("a", "c")).sorted.mkString(","))
+
+//  implicit val executionContext = Executors.newFixedThreadPool(2)
+//  Future {
+//  }(executionContext) -- nu e necesar caci in semnatura functiei e marcat param ca implicit
+
+  implicit val ordr = new CustomerComparator
+
+  println(Array(Customer("b"), Customer("a"),Customer("c")).sorted.mkString(","))
+}
+class CustomerComparator extends Ordering[Customer] {
+  override def compare(x: Customer, y: Customer): Int = x.name compareTo y.name
 }
 
-class Customer
+case class Customer(name:String)
 
 case class FullName(firstName: String, lastName: String) extends Ordered[FullName] {
   //  def <
