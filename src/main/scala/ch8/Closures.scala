@@ -27,5 +27,24 @@ object Closures extends App{
   println(a())
 
 
+
+//  def getConfiguration():Config = {
+//    var config: Config = null
+//
+//  }
+
+  val config = loadConfig()
+
+  def loadConfig():Config = {
+    println("Load config")
+    Thread.sleep(4000)
+    new Config(Math.random())
+  }
+  println("incepe app")
+
+  println(config)
+  println(config)
+
 }
 
+case class Config(double: Double)
