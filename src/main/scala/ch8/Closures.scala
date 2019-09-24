@@ -33,6 +33,7 @@ object Closures extends App{
 //
 //  }
 
+  lazy
   val config = loadConfig()
 
   def loadConfig():Config = {
