@@ -4,11 +4,6 @@
 - File challenge: print size of lines at begin
 
 
-2 | ab
-10| 1234567890
-
-
-
 EXERCISE Rational:
 - Rational(campuri)
 - toString
@@ -20,12 +15,19 @@ EXERCISE Rational:
 - implicit conversions (in tip sau in pachet(
 
 
+EXERCISE: from imperative to functional:
+--> MultiplicationTable
+
+
+Venkat Subramaniam
+
 Chap 7
 if = ?:
 - Nothing when throws
 Switch 
 - match { case _ =>
 catch { case Ex1: FileNotFoundException =>
+
 - finally 2 vs finally return 2
 
 EXERCISE For: list all the scala lines we wrote until now
@@ -35,9 +37,9 @@ EXERCISE For: list all the scala lines we wrote until now
 - { te scapa de ;
 - loop backwards to (1,-1); downto
 
-EXERCISE: from imperative to functional:
---> MultiplicationTable
+EXERCISE: convert continue/break to tail recursion
 
+---------------------------------day 2--------------------------------
 
 Chap 8 Functions
 - local functions
@@ -53,7 +55,7 @@ Chap 8 Functions
 - default params =
 
 
-EXERCISE: convert continue/break to tail recursion
+
 
 Chap 9 Control Abstractions
 - Currying
@@ -66,10 +68,13 @@ def sum(a:Int) = (b:Int) => a + b
   = lazy + many times callable form within
   
   
+
+  
 Chap 10 OOP
 - Parameterless methods vs empty-paren (side effects) -> uniform access principle
 - no field name = method name
 
+EXERCISE: layout library
 - Element{def contents:Array[String]; width; height}
 - ArrayElement(conts:Array[String])  sau override via params
 - calling super constr:  LineElement(s:String) extends ArrayElement(Array(s))
@@ -103,10 +108,48 @@ Incrementer
 new BasicIntQueue with Doubing
 TODO vezi 12.1 tabel
 
+13. Protection
+- private[this]
+- private [package]
+- copy exmplu bobsrocket
+
+
 15. Pattern Matching
 - generalSize(Any) x match m:Map[_,_] =>
 - isInstanceOf si asInstanceOf  (descurajat)
 - case Map[Int,Int] ==> warning: erasure.
 			- Dar merge cu Array: isIntArray(a:Any)
 - pattern guards if (x==y)
+- descompunerea a unei liste in a :: b :: rest => 
+- def = {case ..}  - partial functions
+		- cast ca PartialFunction[...] si ai .isDefinedAt()
+- for ((a,b) <-
+- sealed
 			
+16 List methods:
+- zip, zipWithIndex, unzip
+- tail, head
+- cu List.range, implem generare perechi (i,j) ai 1<=j<i<5  
+- find
+- takeWhile / dropWhile / span
+- fold /:    (1 /: xs) (_ * _)
+- sortWith
+- List.fill()  =>
+- (List(10, 20), List(3, 4, 5)).zipped.map(_ * _)
+- search " Common operations for sets" 	 	
+- map(key) vs map.get(key)
+			
+			
+18 Mutable Objects
+- getter, "hour", and setter, "hour_=" + rename the fields
+- class Time {var hour = 12, var minute = 0}  
+- attempt create synthetic getters and setters (no backing prop)
+
+			
+MAda:
+
+- lazy val
+- Try
+- Future implicit
+- Await 9vezi poza)
+- trait { =>
