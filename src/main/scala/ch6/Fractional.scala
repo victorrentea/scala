@@ -57,6 +57,7 @@ object Fractional { //companion object
 
   implicit def deLaIntLaFractional(i: Int): Fractional = Fractional(i)
   implicit def deLaFractionalLaInt(fractional: Fractional): Int = fractional.numarator/fractional.numitor
+//  implicitly
 
 }
 

@@ -21,7 +21,17 @@ object Chapter15_Option extends App {
     case Some(s) => s
     case None => "Nimic"
   }
-  println("print: " + ss)
+  val f:Option[String] => String =  {
+    case Some(s) => s
+    case None => "Nimic"
+  }
+  val partial : PartialFunction[Option[String], String] = {
+    case Some(s) => s
+    case None => "Nimic"
+
+  }
+//  partial.isDefinedAt()
+    println("print: " + ss)
 
   val secvDePerechi = Array((1,"one"),(2,"two"),(3,"three"))
   //"1-2-3" si "one-two-three"
