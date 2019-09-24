@@ -67,11 +67,9 @@ def sum(a:Int) = (b:Int) => a + b
 - by-name params ( : =>  Boolean)  TODO : an myAssert(b)
   = lazy + many times callable form within
   
-  
-
-  
+    
 Chap 10 OOP
-- Parameterless methods vs empty-paren (side effects) -> uniform access principle
+- Parameterless methods ()=side efects vs empty-paren (pure) -> uniform access principle
 - no field name = method name
 
 EXERCISE: layout library
@@ -146,7 +144,7 @@ TODO vezi 12.1 tabel
 - attempt create synthetic getters and setters (no backing prop)
 
 			
-MAda:
+MAda === : 
 
 - lazy val
 - Try

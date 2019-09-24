@@ -21,7 +21,7 @@ object Element {
     new UniformElement(character, height, width)
 }
 
-abstract class Element {
+trait Element {
   val width: Int
   val height: Int
   def asArray: Array[String]
