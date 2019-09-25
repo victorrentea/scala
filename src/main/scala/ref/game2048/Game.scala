@@ -23,7 +23,29 @@ object Game extends App {
   val b2 = b.putNumbers(newPoints)
 
   println(b2)
+
+  val line = Array(2,2,4,0)
+  (line zip line.drop(1)).foreach(println _)
+
+
+  println(compact(List(2,2,4,4)))
+
+  def compact(list:List[Int], zeros:Int = 0): List[Int] = list match {
+    case Nil => if (zeros == 0) Nil else 0 :: compact(Nil, zeros - 1)
+    case 0 :: rest => compact(rest, zeros + 1)
+    case x :: y :: rest if x == y => x * 2 :: compact(rest, zeros + 1)
+    case x :: rest => x :: compact(rest, zeros)
+  }
+
+  val orig: List[List[Int]] = List(List(1, 2, 3, 4), List(5, 6, 7, 8), List(9, 10, 11, 12), List(13, 14, 15, 16))
+  println(orig.mkString("\n"))
+  println("----")
+  println(rotate(orig).mkString("\n"))
+//
+  def rotate(m:List[List[Int]]): IndexedSeq[IndexedSeq[Int]] =
+    for (i <- 0 to 3) yield for (j<- 0 to 3) yield m(j)(3-i)
 }
+
 
 //object Cell {
 //  def Cell(value: Int): Cell = new NumberCell(value)

@@ -118,6 +118,12 @@ TODO vezi 12.1 tabel
 - case Map[Int,Int] ==> warning: erasure.
 			- Dar merge cu Array: isIntArray(a:Any)
 - pattern guards if (x==y)
+
+
+
+====================== day 3 ================
+
+
 - descompunerea a unei liste in a :: b :: rest => 
 - def = {case ..}  - partial functions
 		- cast ca PartialFunction[...] si ai .isDefinedAt()
