@@ -3,7 +3,7 @@ package ch12
 object ShapePlay extends App{
 
   val x = new Square(Point(1,1),1)
-  x.
+//  x.
 }
 case class Point(x:Int, y:Int)
 
