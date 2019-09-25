@@ -1,15 +1,24 @@
 package ch19
 
 class OptimQueue {
-  var s1:List[Int] = Nil
-  var s2:List[Int] = Nil
-  def push(e: Int) = {
-    s1 = e :: s1
+  var incoming:List[Int] = Nil
+  var outgoing:List[Int] = Nil
+
+  def push(e: Int): Unit = {
+    incoming = e :: incoming
   }
   def pull(): Int = {
-    val rez = s1.last
-    s1 = s1.slice(0, s1.length - 1) // o(N)
+    reverse()
+    val rez = outgoing.head
+    outgoing = outgoing.tail
     rez
+  }
+
+  private def reverse(): Unit = {
+    if (outgoing.isEmpty) {
+      outgoing = incoming.reverse
+      incoming = Nil
+    }
   }
 }
 
