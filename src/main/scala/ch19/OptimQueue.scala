@@ -39,9 +39,9 @@ object OptimQueuePlay extends App {
   }
 
   def m(cell:Cell[String]):Unit = {
-    val anyCell:Cell[Any] = cell
-    anyCell.set(1)
-    cell.get
+//    val anyCell:Cell[Any] = cell
+//    anyCell.set(1)
+//    cell.get
 
 //    List<String> stringList;
 //    List l = stringList;//
@@ -66,7 +66,9 @@ abstract class Gunoi[-T] { // contravariance:
   def aruncaLaGunoi(s: T)
 }
 
-abstract class Cell[+T] {
+abstract class Cell[T] {
   def set(t: T)
   def get:T
 }
+
+
