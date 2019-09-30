@@ -3,19 +3,21 @@ package ch26
 object GetterSetter extends App {
 
   val contor = new Contor()
-  println(contor.getV()) // 0
+  println(contor.v) // 0
   contor.setV(10)
-  println(contor.getV())
+  println(contor.v)
   contor.setV(-10)
 //  contor.v = -11
-  println(contor.getV())
+  println(contor.v)
 }
 // trebuie sa-i poti seta orice valoare "v" cu cond ca val sa nu fie
 // negativa.
 //daca se da negativa sa ramana la vechea valoare
-class Contor(private var v: Int = 0) {
-  def setV(value: Int):Unit = if (value >= 0) v = value // if e folosit ca statement nu ca expresie
-  def getV(): Int = v
+class Contor(private var _v: Int = 0) {
+  def setV(value: Int):Unit = if (value >= 0) _v = value // if e folosit ca statement nu ca expresie
+  def v: Int = _v // by default incercam sa facem totul val.
+  // vom reusi daca clasele noastre sunt imutabile (sau case class)
+  // Dar aici trebuie def pt ca se modifica starea interna a clasei
 
 }
 
