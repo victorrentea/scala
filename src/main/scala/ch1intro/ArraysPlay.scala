@@ -27,10 +27,12 @@ object ArraysPlay extends App {
   // TODO println "Echo"
 
   // unde-i aray listu ?!!!
-  var arrayList = new ArrayBuffer[String] // ~~ArrayList
+  val arrayList = new ArrayBuffer[String] // ~~ArrayList
   println("initial : " + arrayList.size)
   arrayList += "a"
   println(arrayList)
+
+
 
 }
 

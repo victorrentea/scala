@@ -9,6 +9,16 @@ object GetterSetter extends App {
   contor.v = -10
 //  contor.v = -11
   println(contor.v)
+
+
+  var cc = new ContorScalaPurist()
+  println(cc.v) // 0
+  cc= cc.cuAltV(10)
+  println(cc.v) // 0
+  cc= cc.cuAltV(-10)
+  println(cc.v) // 0
+
+
 }
 // trebuie sa-i poti seta orice valoare "v" cu cond ca val sa nu fie
 // negativa.
@@ -18,7 +28,11 @@ class Contor(private var _v: Int = 0) {
   def v: Int = _v // by default incercam sa facem totul val.
   // vom reusi daca clasele noastre sunt imutabile (sau case class)
   // Dar aici trebuie def pt ca se modifica starea interna a clasei
-
 }
 
 
+class ContorScalaPurist(val v: Int = 0) {
+  def cuAltV(value: Int):ContorScalaPurist =
+    if (value >= 0) new ContorScalaPurist(value)
+    else this
+}
