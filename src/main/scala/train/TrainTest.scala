@@ -31,32 +31,32 @@ object TrainTest extends App{
 
   // depasesti total vagon
   require(configure(train("tren",
-    coach("A", 8)))
+    coach("A", 2)))
     .reserve(ReservationRequest("tren", 1)).isEmpty)
 
   // gresesti id tren
   require(configure(train("tren",
-    coach("A", 2)))
+    coach("A", 8)))
     .reserve(ReservationRequest("trenXX", 1)).isEmpty)
 
   // depasesti total tren
   require(configure(train("tren",
-    coach("A", 10),
-    coach("B", 10, 4)
+    coach("A", 0),
+    coach("B", 5, 4)
   ))
-    .reserve(ReservationRequest("trenXX", 1)).isEmpty)
+    .reserve(ReservationRequest("tren", 1)).isEmpty)
 
   // OK
   require(configure(train("tren",
-    coach("A", 2)))
+    coach("A", 8)))
     .reserve(ReservationRequest("tren", 1)) match {
     case Some(ReservationResponse("tren",ref, List("A1"))) => true
   })
 
   // OK
   require(configure(train("tren",
-    coach("A", 8),
-    coach("B", 2)))
+    coach("A", 2),
+    coach("B", 8)))
     .reserve(ReservationRequest("tren", 2)) match {
     case Some(ReservationResponse("tren",ref, List("B1","B2"))) => true
   })
