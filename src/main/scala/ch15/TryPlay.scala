@@ -16,7 +16,7 @@ object TryPlay extends App {
   }
 
   println(sSquared("2"))
-  val failed = sSquared("2")
+  val failed: Try[Int] = sSquared("2")
   println(failed)
   println(sSquaredList(Array("2","a","3")).mkString(" "))
 

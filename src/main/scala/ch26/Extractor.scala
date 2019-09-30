@@ -3,18 +3,28 @@ package ch26
 import scala.util.matching.Regex
 
 object Extractor extends App {
-  val emailPattern: Regex = "(\\w+)@(\\w+.\\w+)".r
+  val EmailPattern: Regex = "(\\w+)@(\\w+.\\w+)".r
 
-  val valid = "jdoe@b.com"
+  val validEmail = "jdoe@b.com"
 
-  println(emailPattern matches valid)
-  println(emailPattern matches "valid")
-  val emailPattern(user, domain) = valid
+  println(EmailPattern matches validEmail)
+  println(EmailPattern matches "valid")
+  val EmailPattern(userX, domainX) = validEmail
 
-  println(user)
+  println(userX)
+
+  val text = "Ana are emailul ana@maria.ro si vlad are vlad@tepes.ro"
+
+  for (EmailPattern(user,domain) <- EmailPattern findAllIn text) {
+    println(user)
+  }
 }
 
 
 object Email {
-
+  def unapply(emailString: String): Option[(String, String)] =
+    if (emailString.contains("@")) {
+      val arr = emailString.split("@")
+      Some(arr(0), arr(1))
+    } else None
 }

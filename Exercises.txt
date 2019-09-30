@@ -123,31 +123,49 @@ TODO vezi 12.1 tabel
 
 ====================== day 3 ================
 
+test(s:String)(block:=>Unit):Unit = {
+block
+
+2 2 2 2
+
+
+
+- TODO rectangle
 
 - descompunerea a unei liste in a :: b :: rest => 
-- def = {case ..}  - partial functions
-		- cast ca PartialFunction[...] si ai .isDefinedAt()
 - for ((a,b) <-
 - sealed
 			
 16 List methods:
 - zip, zipWithIndex, unzip
 - tail, head
-- cu List.range, implem generare perechi (i,j) ai 1<=j<i<5  
+
 - find
-- takeWhile / dropWhile / span
-- fold /:    (1 /: xs) (_ * _)
+
 - sortWith
 - List.fill()  =>
 - (List(10, 20), List(3, 4, 5)).zipped.map(_ * _)
-- search " Common operations for sets" 	 	
 - map(key) vs map.get(key)
 			
 			
+ ========= day 4 =================			
+- def = {case ..}  - partial functions
+		- cast ca PartialFunction[...] si ai .isDefinedAt()
+- search " Common operations for sets" 	 	
+
+- cu List.range, implem generare perechi (i,j) ai 1<=j<i<5  
+- takeWhile / dropWhile / span
+- fold /:    (1 /: xs) (_ * _)
+
+
 18 Mutable Objects
 - getter, "hour", and setter, "hour_=" + rename the fields
 - class Time {var hour = 12, var minute = 0}  
 - attempt create synthetic getters and setters (no backing prop)
+
+
+- Future
+
 
 			
 MAda === : 
