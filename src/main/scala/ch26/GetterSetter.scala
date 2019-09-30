@@ -28,6 +28,8 @@ class Contor(private var _v: Int = 0) {
   def v: Int = _v // by default incercam sa facem totul val.
   // vom reusi daca clasele noastre sunt imutabile (sau case class)
   // Dar aici trebuie def pt ca se modifica starea interna a clasei
+
+
 }
 
 
