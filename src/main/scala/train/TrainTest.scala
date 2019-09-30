@@ -15,7 +15,7 @@ object TrainTest extends App{
   def seat(seatId:Int, coachId:String, free:Boolean):SeatInfo =
     (coachId+seatId) -> (if (free) "" else "bookref", seatId.toString, coachId)
   def coach(coachId:String, procentFree10:Int, totalSeats:Int=10): List[SeatInfo] =
-    (1 to totalSeats).map(i => seat(i, coachId, i<=procentFree10*10/totalSeats)).toList
+    (1 to totalSeats).map(i => seat(i, coachId, i<=procentFree10/10d *totalSeats)).toList
   def train(trainId: String, seats : List[SeatInfo]*) =
     Map(trainId -> seats.flatten.toList)
 
@@ -29,7 +29,7 @@ object TrainTest extends App{
   val toTest = configure(data)
       .reserve(ReservationRequest("express",1))
 
-  // depasesti total tren
+  // depasesti total vagon
   require(configure(train("tren",
     coach("A", 8)))
     .reserve(ReservationRequest("tren", 1)).isEmpty)
@@ -37,6 +37,13 @@ object TrainTest extends App{
   // gresesti id tren
   require(configure(train("tren",
     coach("A", 2)))
+    .reserve(ReservationRequest("trenXX", 1)).isEmpty)
+
+  // depasesti total tren
+  require(configure(train("tren",
+    coach("A", 10),
+    coach("B", 10, 4)
+  ))
     .reserve(ReservationRequest("trenXX", 1)).isEmpty)
 
   // OK
