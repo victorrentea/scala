@@ -153,25 +153,22 @@ block
 		- cast ca PartialFunction[...] si ai .isDefinedAt()
 - search " Common operations for sets" 	 	
 
-- cu List.range, implem generare perechi (i,j) ai 1<=j<i<5  
 - takeWhile / dropWhile / span
-- fold /:    (1 /: xs) (_ * _)
-
 
 18 Mutable Objects
 - getter, "hour", and setter, "hour_=" + rename the fields
 - class Time {var hour = 12, var minute = 0}  
 - attempt create synthetic getters and setters (no backing prop)
 
+=================== day 5 ===============
+
+- cu List.range, implem generare perechi (i,j) ai 1<=j<i<5  
+
+Fibonacci
+- fold /:    (1 /: xs) (_ * _)
 
 - Future
 
-
-			
-MAda === : 
-
-- lazy val
-- Try
 - Future implicit
-- Await 9vezi poza)
+- Await (vezi poza)
 - trait { =>
