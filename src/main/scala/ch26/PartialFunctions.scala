@@ -61,8 +61,23 @@ object PartialFunctions extends App {
   val Doishpe(suffix) = "1234567890123456"
   println(suffix)
 
-//  def extrageSuffixCard(s:String):String = {
-//    case Doishpe(suf) => "*" * 12 + suf
-//  }
+  def extrageSuffixCard: String => String = {
+    case CardNumber(suf:String) => "*" * 12 + suf
+  }
+  proceseaza(List("a"),{case CardNumber(suf) => "*" *12 + suf})
+
+  def proceseaza(cards: List[String], extractor: String=>String): Unit = {
+//    bla
+  }
+}
+
+object CardNumber {
+  private val Doishpe: Regex = """\d{12}(\d{4})""".r
+  def unapply(arg: String): Option[String] = {
+    arg match {
+      case Doishpe(s) => Some(s)
+      case _ => None
+    }
+  }
 }
 
