@@ -22,4 +22,13 @@ object PhpInScala extends App {
       case _:NumberFormatException => 14
       case _ => 10
     }).map(_ / 2))
+
+  implicit def toStringMeu(s:String) = new StringuMeu(s)
+
+  println("abc abc".faraSpatii())
 }
+
+ class StringuMeu(s:String) {
+   def faraSpatii():String =
+     s.replaceAll("\\s","")
+ }
